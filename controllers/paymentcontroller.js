@@ -11,8 +11,8 @@ exports.createPayment = async (req, res) => {
         intent: "sale",
         payer: { payment_method: "paypal" },
         redirect_urls: {
-            return_url: "http://localhost:3000/success",
-            cancel_url: "http://localhost:3000/cancel"
+            return_url: "https://befitbackend.onrender.com/success",
+            cancel_url: "https://befitbackend.onrender.com/cancel"
         },
         transactions: [{
             amount: { currency: "USD", total: amount },
