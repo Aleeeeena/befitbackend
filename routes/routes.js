@@ -47,8 +47,8 @@ router.post("/create", async (req, res) => {
              intent: "sale",
              payer: { payment_method: "paypal" },
              redirect_urls: {
-                 return_url: `http://localhost:3000/success`, // No need to pass dietitianId in URL
-                 cancel_url: "http://localhost:3000/cancel",
+                 return_url: `https://befront.vercel.app/success`, // No need to pass dietitianId in URL
+                 cancel_url: "https://befront.vercel.app/cancel",
              },
              transactions: [
                  {

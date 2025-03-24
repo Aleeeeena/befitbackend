@@ -11,8 +11,8 @@ exports.createPayment = async (req, res) => {
         intent: "sale",
         payer: { payment_method: "paypal" },
         redirect_urls: {
-            return_url: "https://befitbackend.onrender.com/success",
-            cancel_url: "https://befitbackend.onrender.com/cancel"
+            return_url: "https://befront.vercel.app/success",
+            cancel_url: "https://befront.vercel.app/cancel"
         },
         transactions: [{
             amount: { currency: "USD", total: amount },
@@ -102,7 +102,7 @@ exports.successPayment = async (req, res) => {
 
                 console.log("Subscription saved successfully!");
                 //res.json({ message: "Payment successful", payment });
-                res.redirect("http://localhost:5173/success");
+                res.redirect("https://befront.vercel.app/success");
 
             } catch (dbError) {
                 console.error("Error saving subscription:", dbError);
