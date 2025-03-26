@@ -48,7 +48,7 @@ const TreatmentSchema = new mongoose.Schema(
         ],
 
         treatmentPlan: {
-          details: { type: mongoose.Schema.Types.Mixed, default: {} }, // ✅ Changed from String to Mixed
+          details: { type: mongoose.Schema.Types.Mixed, default: {} },
           updatedAt: { type: Date, default: Date.now }, // Store last update time
         },
       },

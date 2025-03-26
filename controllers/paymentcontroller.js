@@ -11,8 +11,8 @@ exports.createPayment = async (req, res) => {
         intent: "sale",
         payer: { payment_method: "paypal" },
         redirect_urls: {
-            return_url: "https://befront.vercel.app/success",
-            cancel_url: "https://befront.vercel.app/cancel"
+            return_url: "https://befitfitness.vercel.app/success",
+            cancel_url: "https://befitfitness.vercel.app/cancel"
         },
         transactions: [{
             amount: { currency: "USD", total: amount },
@@ -54,13 +54,11 @@ exports.successPayment = async (req, res) => {
                 console.log("Payment Response:", payment);
 
                 const { userId, dietitianId } = JSON.parse(payment.transactions[0].custom);
-                const amount = 50; // Ensure the amount is always set to 50
-
+                const amount = 50;
                 if (!dietitianId || !userId) {
                     return res.status(400).json({ error: "Missing necessary transaction data" });
                 }
 
-                // Store subscription in UserSubscription model
                 await UserSubscription.findOneAndUpdate(
                     { userId },
                     {
@@ -102,7 +100,7 @@ exports.successPayment = async (req, res) => {
 
                 console.log("Subscription saved successfully!");
                 //res.json({ message: "Payment successful", payment });
-                res.redirect("https://befront.vercel.app/success");
+                res.redirect("https://befitfitness.vercel.app/success");
 
             } catch (dbError) {
                 console.error("Error saving subscription:", dbError);

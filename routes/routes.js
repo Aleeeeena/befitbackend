@@ -47,8 +47,8 @@ router.post("/create", async (req, res) => {
              intent: "sale",
              payer: { payment_method: "paypal" },
              redirect_urls: {
-                 return_url: `https://befront.vercel.app/success`, // No need to pass dietitianId in URL
-                 cancel_url: "https://befront.vercel.app/cancel",
+                 return_url: `https://befitfitness.vercel.app/success`, // No need to pass dietitianId in URL
+                 cancel_url: "https://befitfitness.vercel.app/cancel",
              },
              transactions: [
                  {
@@ -105,6 +105,9 @@ router.get('/clientreport/:dietid/:clientid',getclientreport)
 router.post('/profile', multermiddleware.single('profileImage'), storeUserProfile);
 
 router.get('/getprofiledetails/:userId',getprofile)
+
+
+
 module.exports = router; 
 
 
